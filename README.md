@@ -2,7 +2,7 @@
 
 A machine learning project predicting cardiovascular disease risk from clinical and lifestyle patient data, combining a biomedical engineering background with applied ML techniques — from data cleaning to model interpretability.
 
-## 🎯 Project Overview
+## Project Overview
 
 This project applies and compares multiple machine learning algorithms to predict whether a patient is likely to develop cardiovascular disease, based on clinical measurements (blood pressure, cholesterol, glucose) and lifestyle factors (smoking, alcohol, physical activity).
 
