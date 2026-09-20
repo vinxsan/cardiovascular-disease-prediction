@@ -10,14 +10,14 @@ The dataset and problem were chosen deliberately: they connect to my professiona
 
 **Key result:** three different algorithms (Logistic Regression, Random Forest, XGBoost) converge to a similar performance ceiling (AUC ≈ 0.79–0.80), suggesting the main limiting factor is the information available in basic clinical features rather than model complexity — a finding further confirmed by testing a stacking ensemble.
 
-## 📊 Dataset
+## Dataset
 
 - **Source:** [Cardiovascular Disease dataset](https://www.kaggle.com/datasets/sulianova/cardiovascular-disease-dataset) (Kaggle, open-source)
 - **Size:** ~70,000 patient records, ~68,000 after cleaning
 - **Features:** age, gender, height, weight, blood pressure (systolic/diastolic), cholesterol, glucose, smoking, alcohol intake, physical activity
 - **Target:** presence (1) or absence (0) of cardiovascular disease
 
-## 🔧 Methodology
+## Methodology
 
 1. **EDA & Data Cleaning** — identified and removed physiologically implausible values (e.g., negative or extreme blood pressure, inconsistent systolic/diastolic values, unrealistic height/weight) — ~3.7% of records removed overall
 2. **Feature Engineering** — derived BMI from height and weight; dropped `weight` due to high collinearity with BMI (0.86)
@@ -27,7 +27,7 @@ The dataset and problem were chosen deliberately: they connect to my professiona
 6. **Stacking Ensemble** — tested combining all three tuned models; did not outperform individual models, confirming they capture largely overlapping patterns
 7. **Interpretability (SHAP)** — applied to the final XGBoost model to explain both global feature importance and individual predictions
 
-## 📈 Results
+## Results
 
 | Model | Accuracy | Recall (class 1) | AUC |
 |---|---|---|---|
@@ -46,32 +46,32 @@ The dataset and problem were chosen deliberately: they connect to my professiona
 |---|---|
 | ![High Risk](images/shap_waterfall_high_risk.png) | ![Low Risk](images/shap_waterfall_low_risk.png) |
 
-## 🧠 Key Takeaways
+## Key Takeaways
 
 - **Systolic blood pressure, age, and cholesterol level** emerged as the strongest predictors of cardiovascular disease risk — consistent with established clinical knowledge, reinforcing confidence in data quality and model behavior
 - **Lifestyle features (smoking, alcohol, physical activity) had comparatively minor impact**, likely due to the limitations of self-reported data
 - **Model complexity did not translate into better performance**: a simple, interpretable Logistic Regression performed nearly on par with more complex ensemble methods — an important, realistic finding often overlooked in favor of chasing marginal accuracy gains
 
-## ⚠️ Limitations
+## Limitations
 
 - The dataset relies on self-reported patient data, introducing noise (reflected in the outliers identified during cleaning)
 - Only basic clinical and lifestyle features were available; more advanced clinical markers (e.g., ECG, imaging data) could likely improve predictive performance further
 - Results are based on a single open-source dataset and have not been validated on external clinical data
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 Python · pandas · NumPy · scikit-learn · XGBoost · SHAP · matplotlib · seaborn
 
-## 🚀 How to Run
+## How to Run
 
 ```bash
-git clone https://github.com/<your-username>/cardiovascular-disease-prediction.git
+git clone https://github.com/<vinxsan>/cardiovascular-disease-prediction.git
 cd cardiovascular-disease-prediction
 pip install -r requirements.txt
 jupyter notebook cardiovascular_disease_prediction.ipynb
 ```
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 ├── cardiovascular_disease_prediction.ipynb   # main notebook
@@ -83,7 +83,7 @@ jupyter notebook cardiovascular_disease_prediction.ipynb
 └── README.md
 ```
 
-## 👤 About Me
+## About Me
 
 I'm a Biomedical Engineer transitioning into AI/Machine Learning, currently based in the Netherlands. My background combines 5 years of experience in the medical device industry (cardiac rhythm management and digestive endoscopy) with a strong foundation in ML, including a Master's thesis on Parkinson's disease classification and a 2021 publication on machine learning applied to cardiac imaging. This project is part of my learning path into applied AI/ML roles.
 
