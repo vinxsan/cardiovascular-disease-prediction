@@ -1,6 +1,6 @@
 # Cardiovascular Disease Risk Prediction
 
-A machine learning project predicting cardiovascular disease risk from clinical and lifestyle patient data, combining a biomedical engineering background with applied ML techniques — from data cleaning to model interpretability.
+A machine learning project predicting cardiovascular disease risk from clinical and lifestyle patient data, combining a biomedical engineering background with applied ML techniques - from data cleaning to model interpretability.
 
 ## Project Overview
 
@@ -8,7 +8,7 @@ This project applies and compares multiple machine learning algorithms to predic
 
 The dataset and problem were chosen deliberately: they connect to my professional background in cardiac rhythm management (Biotronik) and my 2021 publication on machine learning applied to cardiac imaging (SPECT), allowing me to combine domain knowledge with a hands-on ML implementation.
 
-**Key result:** three different algorithms (Logistic Regression, Random Forest, XGBoost) converge to a similar performance ceiling (AUC ≈ 0.79–0.80), suggesting the main limiting factor is the information available in basic clinical features rather than model complexity — a finding further confirmed by testing a stacking ensemble.
+**Key result:** three different algorithms (Logistic Regression, Random Forest, XGBoost) converge to a similar performance ceiling (AUC ≈ 0.79–0.80), suggesting the main limiting factor is the information available in basic clinical features rather than model complexity - a finding further confirmed by testing a stacking ensemble.
 
 ## Dataset
 
@@ -19,13 +19,13 @@ The dataset and problem were chosen deliberately: they connect to my professiona
 
 ## Methodology
 
-1. **EDA & Data Cleaning** — identified and removed physiologically implausible values (e.g., negative or extreme blood pressure, inconsistent systolic/diastolic values, unrealistic height/weight) — ~3.7% of records removed overall
-2. **Feature Engineering** — derived BMI from height and weight; dropped `weight` due to high collinearity with BMI (0.86)
-3. **Preprocessing** — `ColumnTransformer` pipeline with scaling (numerical features) and one-hot encoding (categorical features), preventing data leakage via proper train/test split before fitting
-4. **Model Comparison** — Logistic Regression, Random Forest, and XGBoost, each evaluated at baseline and after hyperparameter tuning (`GridSearchCV`, 5-fold cross-validation, optimized for ROC-AUC)
-5. **Threshold Tuning** — given the clinical context, recall on the positive class was prioritized over raw accuracy, since a false negative (missing a true at-risk patient) carries a higher cost than a false alarm
-6. **Stacking Ensemble** — tested combining all three tuned models; did not outperform individual models, confirming they capture largely overlapping patterns
-7. **Interpretability (SHAP)** — applied to the final XGBoost model to explain both global feature importance and individual predictions
+1. **EDA & Data Cleaning** - identified and removed physiologically implausible values (e.g., negative or extreme blood pressure, inconsistent systolic/diastolic values, unrealistic height/weight) - ~3.7% of records removed overall
+2. **Feature Engineering** - derived BMI from height and weight; dropped `weight` due to high collinearity with BMI (0.86)
+3. **Preprocessing** - `ColumnTransformer` pipeline with scaling (numerical features) and one-hot encoding (categorical features), preventing data leakage via proper train/test split before fitting
+4. **Model Comparison** - Logistic Regression, Random Forest, and XGBoost, each evaluated at baseline and after hyperparameter tuning (`GridSearchCV`, 5-fold cross-validation, optimized for ROC-AUC)
+5. **Threshold Tuning** - given the clinical context, recall on the positive class was prioritized over raw accuracy, since a false negative (missing a true at-risk patient) carries a higher cost than a false alarm
+6. **Stacking Ensemble** - tested combining all three tuned models; did not outperform individual models, confirming they capture largely overlapping patterns
+7. **Interpretability (SHAP)** - applied to the final XGBoost model to explain both global feature importance and individual predictions
 
 ## Results
 
@@ -36,11 +36,11 @@ The dataset and problem were chosen deliberately: they connect to my professiona
 | XGBoost (tuned) | 0.74 | 0.68 | 0.80 |
 | Stacking Ensemble | 0.74 | 0.69 | 0.80 |
 
-**SHAP Summary Plot** — global feature importance across the dataset:
+**SHAP Summary Plot** - global feature importance across the dataset:
 
 ![SHAP Summary](images/shap_summary_xgb.png)
 
-**Individual predictions** — high-risk vs. low-risk patient explanation:
+**Individual predictions** - high-risk vs. low-risk patient explanation:
 
 | High-Risk Patient | Low-Risk Patient |
 |---|---|
@@ -60,7 +60,7 @@ The dataset and problem were chosen deliberately: they connect to my professiona
 
 ## Tech Stack
 
-Python · pandas · NumPy · scikit-learn · XGBoost · SHAP · matplotlib · seaborn
+Python · pandas · NumPy · scikit-learn · XGBoost · SHAP · matplotlib · seaborn 
 
 ## How to Run
 
